@@ -1,7 +1,7 @@
 let movies = [
-    {title: "Good Will Hunting", id: 1},
-    {title: "Star Wars", id: 2},
-    {title: "Rocky II", id: 3},
+    {title: "Lord of the Rings: The Fellowship of the Ring", id: 1},
+    {title: "No Country for Old Men", id: 2},
+    {title: "Signs", id: 3},
 ]
 
 let nextId = 4
