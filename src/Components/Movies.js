@@ -19,6 +19,22 @@ class Movies extends Component {
         .catch((err) => console.log(err))
     }
 
+    componentDidMount(){
+        axios.get('/api/movies/review')
+        .then((results) => {
+            this.setState({movies: results.data})
+        })
+        .catch((err) => console.log(err))
+    }
+
+    componentDidMount(){
+        axios.get('/api/movies/rating')
+        .then((results) => {
+            this.setState({movies: results.data})
+        })
+        .catch((err) => console.log(err))
+    }
+
     deleteMovie = (id) => {
         axios.delete(`./api/movies/${id}`)
         .then((results) => {

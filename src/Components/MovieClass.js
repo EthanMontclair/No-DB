@@ -54,6 +54,9 @@ class MovieClass extends Component{
                         ) : (
                             <div>
                         <h1>{movie.title}</h1>
+                        <h3>Poster</h3>
+                        <h3>{movie.rating}/10</h3>
+                        <h3>{movie.review}</h3>
                         <button onClick={() => deleteMovie(movie.id)}>Delete Movie</button>
                         <button onClick={() => this.toggleEdit()}>Edit</button>
                         <button onClick={() => this.toggleDisplay()}>Close</button>

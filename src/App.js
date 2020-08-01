@@ -8,7 +8,7 @@ class App extends Component {
     super(props)
     this.state = {
       displayMovieList: true,
-      displayBookList: false
+      displayBookList: true
     }
   }
   
@@ -16,28 +16,48 @@ class App extends Component {
     this.setState({displayMovieList: !this.state.displayMovieList})
   }
 
+  openBooksList = () => {
+    this.setState({displayBookList: !this.state.displayBookList})
+  }
+
   render(){
   return (
     <div>
-      {this.state.displayMovieList ? (
-      <div className="homepage">
-
-        <div className='Buttons'>
-        <button onClick={() => this.openMoviesList()}>Movies</button>
+      <h1>My Favorite Entertainment</h1>
+        <div className="Books homepage">
+          {this.state.displayBookList ? (
+            <div className="homepage">
+              <div className='Book Buttons'>
+                <button onClick={() => this.openBooksList()}>Books</button>
+              </div>
+            </div>
+          ) : (
+          <div className="Book displays">
+            <div>
+              <Books />
+              <button onClick={() => this.openBooksList()}>Home</button>
+            </div>
+          </div>
+          )}
         </div>
 
+      <div className="Movies homepage">
+        {this.state.displayMovieList ? (
+          <div className="homepage">
+            <div className='Buttons'>
+              <button onClick={() => this.openMoviesList()}>Movies</button>
+            </div>
+          </div>
+        ) : (
+          <div className="displays">
+            <div>
+              <Movies />
+              <button onClick={() => this.openMoviesList()}>Home</button>
+            </div>
+          </div>
+        )}
       </div>
-      ) : (
-      <div className="displays">
-      
-        <div>
-          <Movies />
-          <button onClick={() => this.openMoviesList()}>Home</button>
-        </div>
 
-      </div>
-
-      )}
     </div>
   )
   }

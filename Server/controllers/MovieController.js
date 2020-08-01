@@ -1,13 +1,21 @@
 let movies = [
-    {title: "Lord of the Rings: The Fellowship of the Ring", id: 1},
-    {title: "No Country for Old Men", id: 2},
-    {title: "Signs", id: 3},
+    {title: "Arrival", review: "This movie rocks.", rating: 9,  id: 1},
+    {title: "No Country for Old Men", review: "A man of strict morals, misunderstood as a villain.", rating: 9, id: 2},
+    {title: "Signs", review: "Do you see signs?", rating: 9.5, id: 3},
 ]
 
 let nextId = 4
 
 module.exports = {
     getMovies: (req, res) => {
+        return res.status(200).send(movies)
+    },
+
+    getReview: (req, res) => {
+        return res.status(200).send(movies)
+    },
+
+    getRating: (req, res) => {
         return res.status(200).send(movies)
     },
 
