@@ -6,7 +6,9 @@ class MovieClass extends Component{
         this.state = {
             // the edit: false makes it so we default start NOT in the edit phase
             edit: false,
-            title: " "
+            title: " ",
+            //display false makes it so the movie div is not displayed until toggled
+            display: true,
         }
     }
 
@@ -26,24 +28,39 @@ class MovieClass extends Component{
         this.setState({edit: !this.state.edit})
     }
 
+    toggleDisplay = () => {
+        this.setState({display: !this.state.display})
+    }
+
     render(){
         const {movie, deleteMovie} = this.props
         return(
             <div>
-                {this.state.edit ? (
-                    <div>
-                {/* //this input field only shows if we are in edit mode */}
-                <input value={this.state.name} onChange={(e) => this.handleChange(e.target.value)} /> 
-                <button onClick={() => this.toggleEdit()}>Cancel</button>
-                <button onClick={() => this.save()}>Save</button>
+                {this.state.display ? (
+                    <div className="Movie List">
+                            <h3>{movie.title}</h3>
+                            <h1>Poster</h1>
+                            <button onClick={() => this.toggleDisplay()}>View</button>
                     </div>
                 ) : (
-                    <div>
-                <h1>{movie.title}</h1>
-                <button onClick={() => deleteMovie(movie.id)}>Delete Movie</button>
-                <button onClick={() => this.toggleEdit()}>Edit</button>
+                    <div className="Movie">
+                        {this.state.edit ? (
+                            <div>
+                        {/* //this input field only shows if we are in edit mode */}
+                        <input value={this.state.name} onChange={(e) => this.handleChange(e.target.value)} /> 
+                        <button onClick={() => this.toggleEdit()}>Cancel</button>
+                        <button onClick={() => this.save()}>Save</button>
+                            </div>
+                        ) : (
+                            <div>
+                        <h1>{movie.title}</h1>
+                        <button onClick={() => deleteMovie(movie.id)}>Delete Movie</button>
+                        <button onClick={() => this.toggleEdit()}>Edit</button>
+                        <button onClick={() => this.toggleDisplay()}>Close</button>
+                            </div>
+                        )}
                     </div>
-                )}
+                    )}
             </div>
         )
     }

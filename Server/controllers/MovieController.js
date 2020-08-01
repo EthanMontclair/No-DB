@@ -27,6 +27,7 @@ module.exports = {
     deleteMovie: (req, res) => {
         console.log(req.params)
         const {id} = req.params
+        // req.params is referencing :id in index.js
         movies = movies.filter((elements) => {
             return elements.id !== +id
         })
