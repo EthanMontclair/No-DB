@@ -18,6 +18,9 @@ app.delete('/api/movies/:id', movieCtrl.deleteMovie)
 //ratings
 app.get('/api/movies/rating', movieCtrl.getRating)
 app.put('/api/movies/rating/:id', movieCtrl.editRating)
+//reviews
+app.get('/api/movies/review', movieCtrl.getReview)
+app.put('/api/movies/review/:id', movieCtrl.editReview)
 
 
 //new endpoint ex '/.api/movies/delete are needed for different methods

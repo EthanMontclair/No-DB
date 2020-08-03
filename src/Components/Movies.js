@@ -10,25 +10,18 @@ class Movies extends Component {
             movies: []
         }
     }
+    
+    //Movie/Title
+    editMovie = (id, title) => {
+        axios.put(`/api/movies/${id}`, {title})
+        .then((results) => {
+            this.setState({movies: results.data})
+        })
+        .catch((err) => console.log(err))
+    }
 
     componentDidMount(){
         axios.get('/api/movies')
-        .then((results) => {
-            this.setState({movies: results.data})
-        })
-        .catch((err) => console.log(err))
-    }
-
-    componentDidMount(){
-        axios.get('/api/movies/review')
-        .then((results) => {
-            this.setState({movies: results.data})
-        })
-        .catch((err) => console.log(err))
-    }
-
-    componentDidMount(){
-        axios.get('/api/movies/rating')
         .then((results) => {
             this.setState({movies: results.data})
         })
@@ -51,6 +44,32 @@ class Movies extends Component {
         .catch((err) => console.log(err))
     }
 
+    //review
+    componentDidMount(){
+        axios.get('/api/movies/review')
+        .then((results) => {
+            this.setState({movies: results.data})
+        })
+        .catch((err) => console.log(err))
+    }
+    
+    //rating
+    componentDidMount(){
+        axios.get('/api/movies/rating')
+        .then((results) => {
+            this.setState({movies: results.data})
+        })
+        .catch((err) => console.log(err))
+    }
+    
+    editReview = (id, review) => {
+        axios.put(`/api/movies/review${id}`, {review})
+        .then((response) => {
+            this.setState({movies: response.data})
+        })
+        .catch((err) => console.log(err))
+    }
+
     editRating = (id, rating) => {
         axios.put(`/api/movies/rating/${id}`, {rating})
         .then((response) => {
@@ -59,17 +78,9 @@ class Movies extends Component {
         .catch((err) => console.log(err))
     }
 
-    editMovie = (id, title) => {
-        axios.put(`/api/movies/${id}`, {title})
-        .then((results) => {
-            this.setState({movies: results.data})
-        })
-        .catch((err) => console.log(err))
-    }
-
     render(){
         return(
-            <div>
+            <div className="moviesList">
                 <h1>Movies</h1>
                 <AddMovie addMovie={this.addMovie} />
                 {this.state.movies.map((element, index) => {
@@ -79,6 +90,7 @@ class Movies extends Component {
                     editMovie={this.editMovie}
                     deleteMovie={this.deleteMovie} 
                     editRating={this.editRating}
+                    editReview={this.editReview}
                     />
                 })}
             </div>
