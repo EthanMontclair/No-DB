@@ -15,8 +15,9 @@ app.get('/api/movies', movieCtrl.getMovies)
 app.post('/api/movies', movieCtrl.addMovie)
 app.put('/api/movies/:id', movieCtrl.editMovie)
 app.delete('/api/movies/:id', movieCtrl.deleteMovie)
-app.get('/api/movies/review' , movieCtrl.getReview)
-app.get('/api/movies/rating' , movieCtrl.getRating)
+//ratings
+app.get('/api/movies/rating', movieCtrl.getRating)
+app.put('/api/movies/rating/:id', movieCtrl.editRating)
 
 
 //new endpoint ex '/.api/movies/delete are needed for different methods

@@ -35,7 +35,7 @@ class App extends Component {
           <div className="Book displays">
             <div>
               <Books />
-              <button onClick={() => this.openBooksList()}>Home</button>
+              <button onClick={() => this.openBooksList()}>Hide Books</button>
             </div>
           </div>
           )}
@@ -52,7 +52,7 @@ class App extends Component {
           <div className="displays">
             <div>
               <Movies />
-              <button onClick={() => this.openMoviesList()}>Home</button>
+              <button onClick={() => this.openMoviesList()}>Hide Movies</button>
             </div>
           </div>
         )}

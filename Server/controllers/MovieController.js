@@ -1,21 +1,13 @@
 let movies = [
-    {title: "Arrival", review: "This movie rocks.", rating: 9,  id: 1},
-    {title: "No Country for Old Men", review: "A man of strict morals, misunderstood as a villain.", rating: 9, id: 2},
-    {title: "Signs", review: "Do you see signs?", rating: 9.5, id: 3},
+    {title: "Arrival", rating: 9,  id: 1},
+    {title: "Drive", rating: 9, id: 2},
+    {title: "Signs", rating: 9.5, id: 3},
 ]
 
 let nextId = 4
 
 module.exports = {
     getMovies: (req, res) => {
-        return res.status(200).send(movies)
-    },
-
-    getReview: (req, res) => {
-        return res.status(200).send(movies)
-    },
-
-    getRating: (req, res) => {
         return res.status(200).send(movies)
     },
 
@@ -31,17 +23,28 @@ module.exports = {
         console.log(req.body)
         return res.status(200).send(movies)
     },
-
-    deleteMovie: (req, res) => {
+    
+     deleteMovie: (req, res) => {
         console.log(req.params)
         const {id} = req.params
         // req.params is referencing :id in index.js
         movies = movies.filter((elements) => {
-            return elements.id !== +id
+        return elements.id !== +id
         })
         return res.status(200).send(movies)
     },
 
+    getRating: (req, res) => {
+        return res.status(200).send(movies)
+    },
+
+    editRating: (req, res) => {
+        const{id} = req.params
+        const{rating} = req.body
+        const index = movies.findIndex((element) => element.id === +id)
+        movies[index].rating = rating
+        return res.status(200).send(movies)
+    },
 
     //last step in the edit process
     //first destructure the id off params to identify the thing we are editing

@@ -51,8 +51,8 @@ class Movies extends Component {
         .catch((err) => console.log(err))
     }
 
-    editName = (title) => {
-        axios.put('/api/movies', {title})
+    editRating = (id, rating) => {
+        axios.put(`/api/movies/rating/${id}`, {rating})
         .then((response) => {
             this.setState({movies: response.data})
         })
@@ -77,7 +77,9 @@ class Movies extends Component {
                     movie={element} 
                     key={index} 
                     editMovie={this.editMovie}
-                    deleteMovie={this.deleteMovie} />
+                    deleteMovie={this.deleteMovie} 
+                    editRating={this.editRating}
+                    />
                 })}
             </div>
         )
