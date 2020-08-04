@@ -1,16 +1,71 @@
-
-.App {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  border: 3px solid red
+Body {
+  height: 2000px;
+  background-image: url(https://i.pinimg.com/originals/ab/25/56/ab2556d9a3b30353325b3ecd701986e7.jpg);
 }
-              
+
+
 .viewMovie {
+background-color: rgba(0, 0, 0, 0.217);
 display: flex;
 justify-content: center;
+align-content: space-between;
 border: 3px solid black;
 border-color: black;
 }
 
+p {
+  color: white;
+}
+
+.movieInList {
+display: flex;
+justify-content: space-between;
+/* border: 3px solid black;
+border-color: black; */
+height: 100px;
+width: 400px;
+}
+
+.editMovie {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.626);
+  justify-content: space-between;
+  border-color: black;
+  width: 400px;
+  height: 600px;
+}
+
+/* .movieTitle {
+  display:flex;
+  align-content: space-between;
+  border: 5px solid black;
+} */
+
+.viewBook {
+  background-color: rgba(0, 0, 0, 0.217);
+  display: flex;
+  justify-content: center;
+  align-content: space-between;
+  border: 3px solid black;
+  border-color: black;
+}
+
+.bookInList {
+  display: flex;
+  justify-content: space-between;
+  /* border: 3px solid black;
+  border-color: black; */
+  height: 100px;
+  width: 400px;
+  }
+
+  .bookEdit {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.626);
+    justify-content: space-between;
+    border-color: black;
+    width: 400px;
+    height: 600px;
+  }

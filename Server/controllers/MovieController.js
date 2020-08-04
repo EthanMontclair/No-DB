@@ -1,10 +1,12 @@
 let movies = [
-    {title: "Arrival", rating: 9, review: "review", id: 1},
-    {title: "Drive", rating: 9, review: "review", id: 2},
-    {title: "Signs", rating: 9.5, review: "review", id: 3},
+    {title: "The Man Who Planted Trees", rating: 10, review: "review", id: 1},
+    {title: "Memento", rating: 9, review: "review", id: 2},
+    {title: "Good Will Hunting", rating: 9.5, review: "review", id: 3},
+    {title: "The Midnight Gospel", rating: 9, review: "review", id: 4},
+    {title: "Signs", rating: 8.5, review: "review", id: 5},
 ]
 
-let nextId = 4
+let nextId = 6
 
 module.exports = {
     getReview: (req, res) => {
@@ -17,6 +19,10 @@ module.exports = {
 
     getRating: (req, res) => {
         return res.status(200).send(movies)
+    },
+    
+    getBookRating: (req, res) => {
+        return res.status(200).send(books)
     },
     
     editRating: (req, res) => {

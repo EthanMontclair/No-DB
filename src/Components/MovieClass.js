@@ -9,8 +9,8 @@ class MovieClass extends Component{
             display: true,
             rating: ' ',
             editRating: true,
-            review: " ",
-            editReview: true,
+            // review: " ",
+            // editReview: true,
         }
     }
 
@@ -62,21 +62,19 @@ class MovieClass extends Component{
     render(){
         const {movie, deleteMovie, editReview} = this.props
         return(
-            <div className="viewMovie">
+            <div style={{color:'white'}} className="viewMovie">
                 {this.state.display ? (
-                    <div className="movieInList">
-                            <h3>{movie.title}</h3>
-                            <h3>{movie.rating}/10</h3>
-                            {/* <h5>{movie.review}</h5> */}
-                            <button onClick={() => this.toggleDisplay()}>Edit</button>                        
+                    <div onClick={() => this.toggleDisplay()} className="movieInList">
+                            <h3 className="movieTitle">{movie.title}</h3>
+                            <h3 className="movieRating">{movie.rating}/10</h3>
+                            {/* <h5>{movie.review}</h5> */}                      
                     </div>
                     ) : (
-                        <div>
-                            <div className="movieEdit">
+                        <div className="editMovie">
+                            <div style={{color:'White'}} className="movieEdit">
                                 {this.state.editMovie ? (
-                                    <div>
+                                    <div onClick={() => this.toggleEditMovie()}>
                                         <h1>{movie.title}</h1>
-                                        <button onClick={() => this.toggleEditMovie()}>Title</button>
                                     </div>
                                         ) : (
                                     <div>
@@ -88,10 +86,9 @@ class MovieClass extends Component{
                             </div> 
                             <div className="ratingEdit">
                                 {this.state.editRating ? (
-                                    <div>
+                                    <div onClick={() => this.toggleEditRating()}>
                                         <div>
                                             <h3>{movie.rating}/10</h3>
-                                            <button onClick={() => this.toggleEditRating()}>Rating</button>
                                         </div>
                                         <div className="closeAndDisplay">
                                             <button onClick={() => this.toggleDisplay()}>Close</button>
